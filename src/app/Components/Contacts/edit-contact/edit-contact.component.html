@@ -1,0 +1,32 @@
+<div class="container my-5">
+    <h1 class="mb-3">Edit Contact</h1>
+
+    <div class="row">
+        <div class="col-6">
+            <form #form="ngForm" (ngSubmit)="updateContact()">    
+                <div class="mb-3">
+                    <label for="Id" class="form-label">Id</label>
+                    <input type="text" class="form-control" id="Id" readonly name="Id" [(ngModel)]="contactDetails.Id">
+                  </div>
+                <div class="mb-3">
+                  <label for="FirstName" class="form-label">First Name</label>
+                  <input type="text" class="form-control" id="FirstName"  name="FirstName" [(ngModel)]="contactDetails.FirstName">
+                </div>
+                <div class="mb-3">
+                    <label for="LastName" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" id="LastName" name="LastName" [(ngModel)]="contactDetails.LastName">
+                </div>
+                <div class="mb-3">
+                    <label for="PhoneNumber" class="form-label">Phone Number</label>
+                    <input type="number" class="form-control" id="PhoneNumber" name="PhoneNumber" [(ngModel)]="contactDetails.PhoneNumber">
+                </div> 
+                <div class="mb-3">
+                    <label for="TextComment" class="form-label">Text Comment</label>
+                    <input type="text" class="form-control" id="TextComment" name="TextComment" [(ngModel)]="contactDetails.TextComment">
+                </div> 
+                <button type="submit" class="btn btn-primary mr-5">Save</button>      
+                <button type="button" class="btn btn-danger" (click)="deleteContact(contactDetails.Id)">Delete</button>  
+        </form>
+        </div>
+    </div>
+</div>
