@@ -17,7 +17,7 @@ export class ContactsService {
   }
 
   addContact(addContactRequest: Contact): Observable<Contact>{
-    addContactRequest.Id = '00000000-0000-0000-0000-000000000000';
+    addContactRequest.id = '00000000-0000-0000-0000-000000000000';
    return this.http.post<Contact>(this.baseApiUrl + '/api/contacts', addContactRequest);
   } 
 

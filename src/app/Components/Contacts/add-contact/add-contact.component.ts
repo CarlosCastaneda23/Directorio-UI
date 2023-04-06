@@ -11,11 +11,11 @@ import { ContactsService } from 'src/app/services/contacts.service';
 export class AddContactComponent  implements OnInit{
   
   addContactRequest: Contact ={
-    Id: '',
-    FirstName: '',
-    LastName: '',
-    PhoneNumber: 0,
-    TextComment:''
+    id: '',
+    firstName: '',
+    lastName: '',
+    phoneNumber: 0,
+    textComment:''
   }
   constructor(private contactService: ContactsService, private router: Router){ }
 

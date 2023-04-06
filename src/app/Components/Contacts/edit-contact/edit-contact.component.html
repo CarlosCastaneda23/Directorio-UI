@@ -1,31 +1,50 @@
+
 <div class="container my-5">
     <h1 class="mb-3">Edit Contact</h1>
 
     <div class="row">
-        <div class="col-6">
+        <div class="col-5">
             <form #form="ngForm" (ngSubmit)="updateContact()">    
                 <div class="mb-3">
                     <label for="Id" class="form-label">Id</label>
-                    <input type="text" class="form-control" id="Id" readonly name="Id" [(ngModel)]="contactDetails.Id">
+                    <input type="text" class="form-control" id="Id" readonly name="Id" [(ngModel)]="contactDetails.id">
                   </div>
                 <div class="mb-3">
                   <label for="FirstName" class="form-label">First Name</label>
-                  <input type="text" class="form-control" id="FirstName"  name="FirstName" [(ngModel)]="contactDetails.FirstName">
+                  <input type="text" class="form-control" id="FirstName"  name="FirstName" [(ngModel)]="contactDetails.firstName">
                 </div>
                 <div class="mb-3">
                     <label for="LastName" class="form-label">Last Name</label>
-                    <input type="text" class="form-control" id="LastName" name="LastName" [(ngModel)]="contactDetails.LastName">
+                    <input type="text" class="form-control" id="LastName" name="LastName" [(ngModel)]="contactDetails.lastName">
                 </div>
                 <div class="mb-3">
                     <label for="PhoneNumber" class="form-label">Phone Number</label>
-                    <input type="number" class="form-control" id="PhoneNumber" name="PhoneNumber" [(ngModel)]="contactDetails.PhoneNumber">
+                    <input type="number" class="form-control" id="PhoneNumber" name="PhoneNumber" [(ngModel)]="contactDetails.phoneNumber">
                 </div> 
                 <div class="mb-3">
                     <label for="TextComment" class="form-label">Text Comment</label>
-                    <input type="text" class="form-control" id="TextComment" name="TextComment" [(ngModel)]="contactDetails.TextComment">
+                    <input type="text" class="form-control" id="TextComment" name="TextComment" [(ngModel)]="contactDetails.textComment">
                 </div> 
                 <button type="submit" class="btn btn-primary mr-5">Save</button>      
-                <button type="button" class="btn btn-danger" (click)="deleteContact(contactDetails.Id)">Delete</button>  
+                <button type="button" class="btn btn-danger" data-bs-toggle ="modal" data-bs-target="#Confirmation">Delete</button>  
+                
+                <div class="modal" tabindex="-1" id="Confirmation">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">Confimation Delete</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <p>Are you sure you want to remove contact?</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-danger" (click)="deleteContact(contactDetails.id)">Delete</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
         </form>
         </div>
     </div>

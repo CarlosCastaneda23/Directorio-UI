@@ -8,19 +8,26 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddContactComponent } from './Components/Contacts/add-contact/add-contact.component';
 import { FormsModule } from '@angular/forms';
 import { EditContactComponent } from './Components/Contacts/edit-contact/edit-contact.component';
+import { ModalComponent } from './modal/modal.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     ContactsListComponent,
     AddContactComponent,
-    EditContactComponent
+    EditContactComponent,
+    ModalComponent,
+    
   ],
   imports: [
+    
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

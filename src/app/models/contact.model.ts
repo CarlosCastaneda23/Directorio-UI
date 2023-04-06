@@ -1,7 +1,7 @@
 export interface Contact {
-    Id: string;
-    FirstName: string;
-    LastName: string;
-    PhoneNumber: number;
-    TextComment: String;
+    id: string;
+    firstName: string;
+    lastName: string;
+    phoneNumber: number;
+    textComment: String;
 }

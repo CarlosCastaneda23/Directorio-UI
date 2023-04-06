@@ -4,6 +4,7 @@ import { ContactsListComponent } from './Components/Contacts/contacts-list/conta
 import { AddContactComponent } from './Components/Contacts/add-contact/add-contact.component';
 import { EditContactComponent } from './Components/Contacts/edit-contact/edit-contact.component';
 
+
 const routes: Routes = [
   {
     path: '',

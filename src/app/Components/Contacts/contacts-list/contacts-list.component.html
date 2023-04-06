@@ -14,15 +14,75 @@
         <tbody>
            <tr *ngFor="let contact of contacts">
             
-            <td>{{contact.Id}}</td>
-            <td>{{contact.FirstName}}</td>
-            <td>{{contact.LastName}}</td>
-            <td>{{contact.PhoneNumber}}</td>
-            <td>{{contact.TextComment}}</td> 
-            <td><a [routerLink]="['/contacts','edit',contact.Id ]">Edit</a></td>                
+            <td>{{contact.id}}</td>
+            <td>{{contact.firstName}}</td>
+            <td>{{contact.lastName}}</td>
+            <td>{{contact.phoneNumber}}</td>
+            <td>{{contact.textComment}}</td> 
+            <td>
+                <button (click)="updateClient(contact.id)" type="button" class="btn btn-primary" data-bs-toggle ="modal" data-bs-target="#Edit">Edit</button>
+                </td>              
            </tr> 
         </tbody>
  
     </table>
     <p *ngIf="!contacts || contacts.length <= 0">No Contacts Found</p>
+
+    <div class="modal" tabindex="-1" id="Edit">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Edit Contact</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form #form="ngForm" (ngSubmit)="updateContact()">    
+                            <div class="mb-3">
+                                <label for="Id" class="form-label">Id</label>
+                                <input type="text" class="form-control" id="Id" readonly name="Id" [(ngModel)]="contactDetails.id">
+                              </div>
+                            <div class="mb-3" >
+                              <label for="FirstName" class="form-label">First Name</label>
+                              <input type="text" class="form-control" id="FirstName"  name="FirstName" [(ngModel)]="contactDetails.firstName">
+                            </div>
+                            <div class="mb-3">
+                                <label for="LastName" class="form-label">Last Name</label>
+                                <input type="text" class="form-control" id="LastName" name="LastName" [(ngModel)]="contactDetails.lastName">
+                            </div>
+                            <div class="mb-3">
+                                <label for="PhoneNumber" class="form-label">Phone Number</label>
+                                <input type="number" class="form-control" id="PhoneNumber" name="PhoneNumber" [(ngModel)]="contactDetails.phoneNumber">
+                            </div> 
+                            <div class="mb-3">
+                                <label for="TextComment" class="form-label">Text Comment</label>
+                                <input type="text" class="form-control" id="TextComment" name="TextComment" [(ngModel)]="contactDetails.textComment">
+                            </div>    
+                            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button> 
+                            <button type="button" class="btn btn-danger" data-bs-toggle ="modal" data-bs-target="#Confirmation" data-bs-dismiss="modal">Delete</button>                        
+                    </form>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal" tabindex="-1" id="Confirmation">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Confimation Delete</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>Are you sure you want to remove contact?</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" (click)="deleteContact(contactDetails.id)" data-bs-dismiss="modal">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
 </div>
